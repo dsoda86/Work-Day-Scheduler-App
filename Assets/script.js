@@ -11,16 +11,16 @@ $(document).ready(function () {
 
   // Listens for click events on all elements with class ".saveBtn".
    $(".saveBtn").on("click", function () {
-
-  // Selects the sibling element using 'this' with class "description" of the current element textarea. 
-  // Gets the input value of that element and trims it, and stores it in a variable.
+   
+     // Selects the sibling element using 'this' with class "description" of the current element textarea. 
+     // Gets the input value of that element and trims it, and stores it in a variable.
      var textArea = $(this).siblings(".description").val().trim();
 
-  // Selects parent element of current element that triggers the event. Gets the value of the "id" attribute 
-  // of that parent element ("hour-x") and stores it in a variable.
+     // Selects parent element of current element that triggers the event. Gets the value of the "id" attribute 
+     // of that parent element ("hour-x") and stores it in a variable.
      var timeSlot = $(this).parent().attr("id");
 
-  // Saves the "textArea" value to local storage with the timeSlot variable as the key.
+     // Saves the "textArea" value to local storage with the timeSlot variable as the key.
      localStorage.setItem(timeSlot, textArea);
    });
 
@@ -30,18 +30,33 @@ $(document).ready(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  // need a function to track hours using dayjs so the app knows what time-block is current, past, and future.
-  // need to loop over each time-block comparing the current hour to that slots hour.
-  // gets current hour. Accepts numbers from 0 to 23. If the range is exceeded, it will bubble up to the day.
    function hourTracker () {
+      //Gets current hour in 24-hour time.
     var currentHour = dayjs().hour() 
-
+    $(".time-block").each(function() {
+      // Uses parseInt and split on the block's id to get the number part of the string and store it in a variable.
+      var blockTime = parseInt($(this).attr("id").split("-")[1]);
+      // Compares blockTime of the schedule with the current hour and assigns the proper class of past, present, or future.
+      if (blockTime < currentHour) {
+         $(this).addClass("past");
+      } else if (blockTime === currentHour) {
+         $(this).removeClass("past");
+         $(this).addClass("present");
+      } else if (blockTime > currentHour) {
+         $(this).removeClass("past");
+         $(this).removeClass("present");
+         $(this).addClass("future");
+      } else {
+         console.log("Something went wrong!");
+      }
+    });
    }
+   hourTracker();
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // need 
+  // need a function or method to retrieve and show saved input in textArea
 
   // TODO: Add code to display the current date in the header of the page.
   function displayTime() {
