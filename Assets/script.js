@@ -32,11 +32,11 @@ $(document).ready(function () {
 
   // need a function to track hours using dayjs so the app knows what time-block is current, past, and future.
   // need to loop over each time-block comparing the current hour to that slots hour.
-
-  // function hourTracker ()
   // gets current hour. Accepts numbers from 0 to 23. If the range is exceeded, it will bubble up to the day.
-  //  var currentHour = dayjs().hour() 
+   function hourTracker () {
+    var currentHour = dayjs().hour() 
 
+   }
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
@@ -44,7 +44,10 @@ $(document).ready(function () {
   // need 
 
   // TODO: Add code to display the current date in the header of the page.
-  var currentTime = dayjs();
-  $("#currentDay").text(currentTime.format("dddd, MM-DD-YY hh:mm:ss a"));
-  
+  function displayTime() {
+  var currentTime = dayjs().format("dddd, MM-DD-YY hh:mm:ss a");
+  $("#currentDay").text(currentTime)
+  }
+  displayTime()
+  setInterval(displayTime, 1000)
 })
