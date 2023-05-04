@@ -8,9 +8,12 @@ This scheduling app was created in order to have an easy way to save hourly task
 
 Simply type your tasks in the text input blocks for each our and click the save button to the right. Your text will save and reload in each block upon page refresh or closing and reopening of the application. Delete text and click button to save empty block for re-entry or delete saved local storage values via the 'Application' tab in dev tools.
 
-![App Screenshot](Assets\images\scheduler-app-screenshot.png)
+![scheduler-app-screenshot](https://user-images.githubusercontent.com/122141740/236326099-1a932d56-d119-4260-9f94-9c79bddd4465.png)
 
-![App Demo gif](Assets\images\scheduler-app-demo.gif)
+![scheduler-app-demo](https://user-images.githubusercontent.com/122141740/236326230-0c5f69d7-26b5-4d36-bc7a-684d5cae91f7.gif)
+
+
+
 
 
 ## Links
