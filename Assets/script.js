@@ -3,18 +3,17 @@
 // in the html.
 $(document).ready(function () {
 
-  // Listens for click events on all elements with class ".saveBtn".
+   // Listens for click events on all elements with class ".saveBtn".
+   // Selects the sibling element using 'this' with class "description" of the current element textarea. 
+   // Gets the input value of that element and trims it, and stores it in a variable.
+   // Selects parent element of current element that triggers the event. Gets the value of the "id" attribute 
+   // of that parent element ("hour-x") and stores it in a variable.
+   // Saves the "textArea" value to local storage with the timeSlot variable as the key.
    $(".saveBtn").on("click", function () {
    
-     // Selects the sibling element using 'this' with class "description" of the current element textarea. 
-     // Gets the input value of that element and trims it, and stores it in a variable.
      var textArea = $(this).siblings(".description").val().trim();
-
-     // Selects parent element of current element that triggers the event. Gets the value of the "id" attribute 
-     // of that parent element ("hour-x") and stores it in a variable.
      var timeSlot = $(this).parent().attr("id");
 
-     // Saves the "textArea" value to local storage with the timeSlot variable as the key.
      localStorage.setItem(timeSlot, textArea);
    });
 

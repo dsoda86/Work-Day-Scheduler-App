@@ -3,13 +3,19 @@
   --white: #ffffff;
   --light-blue: #197488;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   margin-bottom: 30px;
-  }
+}
+
 header {
   background-color:var(--light-blue);
+}
+
+header h1 {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 textarea {
